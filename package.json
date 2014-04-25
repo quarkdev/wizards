@@ -1,10 +1,20 @@
 {
-	"name": "Wizards",
-	"version": "0.1.0",
-	"devDependencies": {
-		"grunt": "~0.4.4",
-		"grunt-contrib-jshint": "~0.6.3",
-		"grunt-contrib-nodeunit": "~0.2.0",
-		"grunt-contrib-uglify": "~0.2.2"
-	}
+  "name": "Wizards",
+  "version": "0.1.0",
+  "description": "A simple HTML5 Canvas game inspired by Warlocks (a custom WC3 Map)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quarkdev/wizards.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "~0.4.0"
+  }
 }
