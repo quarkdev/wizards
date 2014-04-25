@@ -1,5 +1,5 @@
 {
-  "name": "Wizards",
+  "name": "wizards",
   "version": "0.1.0",
   "description": "A simple HTML5 Canvas game inspired by Warlocks (a custom WC3 Map)",
   "main": "server.js",
