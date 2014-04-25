@@ -1,0 +1,26 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+
+/*-------------------
+	Progress Bar
+-------------------*/
+#progress {
+	width: 500px;
+}
+
+#progress-wrapper {
+	width: 500px;
+	margin: 32% auto;
+	text-align: center;
+}
+
+#progress-title {
+	font-size: 14px;
+}
+
+#progress-subtitle {
+	font-size: 11px;
+}

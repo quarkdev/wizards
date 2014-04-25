@@ -2,15 +2,21 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="assets/css/ui.css">
-	<script type="text/javascript" src="lib/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="external_libraries/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="src/util/AssetManager.js"></script>
+	<script type="text/javascript" src="src/Main.js"></script>
 </head>
 <body>
+
+	<div id="progress-wrapper">
+		<span id="progress-title"></span>
+		<progress id="progress" value="0" max="100"></progress>
+		<span id="progress-subtitle"></span>
+	</div>
 	<div id="game-div"></div>
 	<script type="text/javascript">
 		window.onload = function () {
-			var game = new GAME();
-
-			game.init();
+			GAME.Main.init();
 		};
 	</script>
 </body>

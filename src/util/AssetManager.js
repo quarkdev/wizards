@@ -1,6 +1,6 @@
 var GAME = GAME || {};
 
-GAME.AssetLoader = (function () {
+GAME.AssetManager = (function () {
 	'use strict';
 
 	// [ Private Variables ]
@@ -24,16 +24,16 @@ GAME.AssetLoader = (function () {
 	ml.load = function (onSuccess, onError) {
 		var item = assets.queue.shift();
 
+		if (!library.hasOwnProperty(item.type)) { library[item.type] = {}; }
+
+		if (item.id in library[item.type]) {
+			assets.failed += 1;
+			onError(item, 'An instance of the asset already exists in library.');
+			return;
+		}
+
 		switch (item.type) {
 			case 'image':
-				if (!library.hasOwnProperty('images')) { library['images'] = {}; }
-
-				if (item.id in library.images) {
-					assets.failed += 1;
-					onError(item, 'An instance of the asset already exists in library.');
-					return;
-				}
-
 				var image = new Image();
 				image.id = item.id;
 
@@ -49,7 +49,7 @@ GAME.AssetLoader = (function () {
 
 				image.src = item.url;
 
-				library.images[id] = image;
+				library[item.type][item.id] = image;
 				break;
 			case 'sound':
 				break;
@@ -63,15 +63,17 @@ GAME.AssetLoader = (function () {
 	};
 
 	ml.loadAll = function (onEachSuccess, onEachError, onComplete) {
-		while (asset.queue.length > 0) {
+		while (assets.queue.length > 0) {
 			ml.load(function (item) {
-				onEachSuccess(item);
+				onEachSuccess(item, assets.loaded/assets.queued);
 
-				if (assets.loaded === assets.queue) {
+				if (assets.loaded === assets.queued) {
 					ml.clear();
 					onComplete();
 				}
-			}, onEachError);
+			}, function (item) {
+				onEachError(item);
+			});
 		}
 	};
 
@@ -79,6 +81,14 @@ GAME.AssetLoader = (function () {
 		assets.queued = 0;
 		assets.loaded = 0;
 		assets.failed = 0;
+	};
+
+	ml.get = function (type, id) {
+		return library[type][id];
+	};
+
+	ml.getByType = function (type) {
+		return library[type];
 	};
 
 	return ml;
