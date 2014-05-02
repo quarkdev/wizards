@@ -18,12 +18,12 @@ GAME.Main = (function () {
 		pgt.html('Loading Assets...');
 
 		// Queue all required assets
-		GAME.AssetManager.queue('image', 'explosion', './assets/images/spritesheets/explosion.png');
-		GAME.AssetManager.queue('image', 'volumetric_explosion', './assets/images/spritesheets/volumetric_explosion.png');
-		GAME.AssetManager.queue('image', 'volumetric_explosion2', './assets/images/spritesheets/volumetric_explosion2.png');
+		GAME.Util.AssetManager.queue('image', 'explosion', './assets/images/spritesheets/explosion.png');
+		GAME.Util.AssetManager.queue('image', 'volumetric_explosion', './assets/images/spritesheets/volumetric_explosion.png');
+		GAME.Util.AssetManager.queue('image', 'volumetric_explosion2', './assets/images/spritesheets/volumetric_explosion2.png');
 
 		// Load all queued assets
-		GAME.AssetManager.loadAll(function (item, completed) {
+		GAME.Util.AssetManager.loadAll(function (item, completed) {
 			pgst.html(item.id + ' loaded.');
 			progress.value = 100 * completed;
 		}, function (item) {

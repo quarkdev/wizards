@@ -1,6 +1,7 @@
 var GAME = GAME || {};
+GAME.Util = GAME.Util || {};
 
-GAME.AssetManager = (function () {
+GAME.Util.AssetManager = (function () {
 	'use strict';
 
 	// [ Private Variables ]

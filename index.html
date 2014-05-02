@@ -4,6 +4,9 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/ui.css">
 	<script type="text/javascript" src="external_libraries/jquery-2.1.0.min.js"></script>
 	<script type="text/javascript" src="src/util/AssetManager.js"></script>
+	<script type="text/javascript" src="src/util/Geometry.js"></script>
+	<script type="text/javascript" src="src/entities/Pool.js"></script>
+	<script type="text/javascript" src="src/entities/Projectile.js"></script>
 	<script type="text/javascript" src="src/Main.js"></script>
 </head>
 <body>
@@ -13,7 +16,9 @@
 		<progress id="progress" value="0" max="100"></progress>
 		<span id="progress-subtitle"></span>
 	</div>
-	<div id="game-div"></div>
+	<div id="game-div">
+		<canvas id="game-canvas" with="500" height="500"></canvas>
+	</div>
 	<script type="text/javascript">
 		window.onload = function () {
 			GAME.Main.init();

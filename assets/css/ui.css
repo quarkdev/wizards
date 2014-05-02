@@ -13,7 +13,10 @@
 
 #progress-wrapper {
 	width: 500px;
-	margin: 32% auto;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin-left: -250px;
 	text-align: center;
 }
 
